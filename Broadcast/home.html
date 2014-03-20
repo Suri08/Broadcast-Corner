@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+</head><body>
+{% extends "base.html" %}
+{% block login %}
+<form action="/login" method="post">
+{% csrf_token%} 
+{% for field in auth_form %} 
+{{ field }} 
+{% endfor %} 
+<input id="btnLogIn" value="Log In" type="submit"> 
+</form>
+{% endblock %}
+{% block content %}
+<img src="%7B%7B%20STATIC_URL%7D%7Dgfx/frog.jpg">
+<div class="panel right">
+<h1>New to Waddup?</h1>
+<p> </p>
+<form action="/signup" method="post">
+{% csrf_token%} 
+{% for field in user_form %} 
+{{ field }} 
+{% endfor %} 
+<input value="Create Account" type="submit"> 
+</form>
+<p></p>
+</div>
+{% endblock %}
+</body></html>
